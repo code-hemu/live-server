@@ -31,27 +31,7 @@ export function resolveBinary(extensionPath?: string): RuntimeInfo {
             arch: process.arch
         };
     }
-    
-    // Check if guchho is installed as npm package dependency
-    try {
-        const guchhoMain = require.resolve('guchho');
-        const guchhoRoot = path.resolve(guchhoMain, '..', '..');
-        // Try to use guchho's binary resolution
-        const guchhoLib = require(path.join(guchhoRoot, 'lib', 'main'));
-        if (guchhoLib.getBinaryPath) {
-            const binPath = guchhoLib.getBinaryPath();
-            if (fs.existsSync(binPath)) {
-                return {
-                    executablePath: binPath,
-                    platform: process.platform,
-                    arch: process.arch
-                };
-            }
-        }
-    } catch (e) {
-        // Ignore
-    }
-    
+
     throw new Error(
         `Could not find Guchho binary for ${platformKey}. ` +
         `Please ensure the extension is properly installed for your platform.`
