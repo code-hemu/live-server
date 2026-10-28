@@ -133,13 +133,14 @@ async function downloadForPlatform(platform: string, version: string, release: a
         throw new Error(`No checksum digest available for ${asset.name}. Cannot verify integrity.`);
     }
 
-    const binDir = path.resolve(__dirname, '..', 'bin');
+    const rootDir = path.resolve(__dirname, '..', '..');
+    const binDir = path.join(rootDir, 'bin');
     const platformDir = path.join(binDir, platform);
     if (!fs.existsSync(platformDir)) {
         fs.mkdirSync(platformDir, { recursive: true });
     }
 
-    const tempDir = path.resolve(__dirname, '..', '.tmp-download');
+    const tempDir = path.join(rootDir, '.tmp-download');
     if (!fs.existsSync(tempDir)) {
         fs.mkdirSync(tempDir, { recursive: true });
     }
