@@ -109,15 +109,16 @@
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
-    "build": "npm run package-platforms",
+    "clean": "guchho clean out",
+    "build": "npm run clean && guchho build && npm run package-platforms",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "guchho lint src",
     "test": "node ./out/test/runTest.js",
-    "download-binaries": "ts-node scripts/download-binaries.ts",
-    "prepare-binaries": "ts-node scripts/prepare-binaries.ts",
-    "package-platforms": "ts-node scripts/package-platforms.ts",
-    "verify-package": "ts-node scripts/verify-package.ts"
+    "download-binaries": "node ./out/scripts/download-binaries.js",
+    "prepare-binaries": "node ./out/scripts/prepare-binaries.js",
+    "package-platforms": "node ./out/scripts/package-platforms.js",
+    "verify-package": "node ./out/scripts/verify-package.js"
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
