@@ -11,13 +11,14 @@ const PLATFORMS = [
 async function verifyPackages() {
     console.log('Verifying packages...');
     
-    const distDir = path.resolve(__dirname, '..', 'dist');
+    const rootDir = path.resolve(__dirname, '..', '..');
+    const distDir = path.join(rootDir, 'dist');
     if (!fs.existsSync(distDir)) {
         console.log('No dist directory found. Run packaging first.');
         return;
     }
     
-    const tempDir = path.resolve(__dirname, '..', '.tmp-verify');
+    const tempDir = path.join(rootDir, '.tmp-verify');
     if (!fs.existsSync(tempDir)) {
         fs.mkdirSync(tempDir, { recursive: true });
     }
