@@ -83,12 +83,13 @@ function verifyIntegrity(filePath: string, expectedIntegrity: string): boolean {
 async function prepareBinaries() {
     console.log('Preparing binaries for all platforms...');
     
-    const binDir = path.resolve(__dirname, '..', 'bin');
+    const rootDir = path.resolve(__dirname, '..', '..');
+    const binDir = path.join(rootDir, 'bin');
     if (!fs.existsSync(binDir)) {
         fs.mkdirSync(binDir, { recursive: true });
     }
     
-    const tempDir = path.resolve(__dirname, '..', '.tmp-binaries');
+    const tempDir = path.join(rootDir, '.tmp-binaries');
     if (!fs.existsSync(tempDir)) {
         fs.mkdirSync(tempDir, { recursive: true });
     }
