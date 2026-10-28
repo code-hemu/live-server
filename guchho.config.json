@@ -1,0 +1,36 @@
+
+[{
+  "build": {
+    "entry": [
+        "src/browser.ts", 
+        "src/extension.ts",
+        "src/guchho-config.ts",
+        "src/runtime.ts",
+        "src/server.ts"
+    ],
+    "outdir": "out/src",
+    "format": "cjs",
+    "target": "esnext"
+  }
+},
+{
+  "build": {
+    "entry": [
+        "scripts/download-binaries.ts", 
+        "scripts/package-platforms.ts", 
+        "scripts/prepare-binaries.ts", 
+        "scripts/verify-package.ts"
+    ],
+    "outdir": "out/scripts",
+    "format": "cjs",
+    "target": "esnext"
+  }
+},
+{
+  "build": {
+    "entry": [ "test/extension.test.ts"],
+    "outdir": "out/test",
+    "format": "cjs",
+    "target": "esnext"
+  }
+}]
