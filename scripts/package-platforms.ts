@@ -19,7 +19,8 @@ function calculateChecksum(filePath: string): string {
 async function packagePlatforms() {
     console.log('Packaging for all platforms...');
     
-    const distDir = path.resolve(__dirname, '..', 'dist');
+    const rootDir = path.resolve(__dirname, '..', '..');
+    const distDir = path.join(rootDir, 'dist');
     if (!fs.existsSync(distDir)) {
         fs.mkdirSync(distDir, { recursive: true });
     }
@@ -34,8 +35,7 @@ async function packagePlatforms() {
     }
     
     const manifest: any[] = [];
-    const binDir = path.resolve(__dirname, '..', 'bin');
-    const rootDir = path.resolve(__dirname, '..');
+    const binDir = path.join(rootDir, 'bin');
     const originalIgnorePath = path.join(rootDir, '.vscodeignore');
     const originalIgnore = fs.readFileSync(originalIgnorePath, 'utf8');
     
@@ -91,7 +91,7 @@ async function packagePlatforms() {
     
     const manifestPath = path.join(distDir, 'release-manifest.json');
     fs.writeFileSync(manifestPath, JSON.stringify({
-        version: require('../package.json').version,
+        version: require(path.join(rootDir, 'package.json')).version,
         createdAt: new Date().toISOString(),
         packages: manifest
     }, null, 2));
