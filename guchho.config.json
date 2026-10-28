@@ -25,12 +25,4 @@
     "format": "cjs",
     "target": "esnext"
   }
-},
-{
-  "build": {
-    "entry": [ "test/extension.test.ts"],
-    "outdir": "out/test",
-    "format": "cjs",
-    "target": "esnext"
-  }
 }]
