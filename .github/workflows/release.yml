@@ -6,40 +6,51 @@ on:
       - 'v*'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-        cache: 'npm'
-    
-    - name: Install dependencies
-      run: npm ci
-    
-    - name: Compile
-      run: npm run compile
-    
-    - name: Download binaries
-      run: npm run download-binaries
-    
-    - name: Package all platforms
-      run: npm run package-platforms
-    
-    - name: Publish to VS Code Marketplace
-      run: npx vsce publish --pat ${{ secrets.VSCE_PAT }} --packagePath $(find dist -name '*.vsix' | tr '\n' ' ')
-      continue-on-error: true
-    
-    - name: Create Release
-      uses: softprops/action-gh-release@v1
-      with:
-        files: |
-          dist/*.vsix
-          dist/release-manifest.json
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Compile
+        run: npm run compile
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Download binaries
+        run: npm run download-binaries
+
+      - name: Package all platforms
+        run: npm run package-platforms
+
+      - name: Verify packages
+        run: npm run verify-package
+
+      - name: Publish to VS Code Marketplace
+        run: npx vsce publish --packagePath dist/*.vsix --skip-duplicate
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+        continue-on-error: true
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/*.vsix
+            dist/release-manifest.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
