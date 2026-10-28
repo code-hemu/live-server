@@ -1,0 +1,137 @@
+{
+  "name": "live-server",
+  "displayName": "Live Server (Guchho)",
+  "description": "Preview HTML pages locally with Guchho.",
+  "version": "0.0.1",
+  "publisher": "codehemu",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/code-hemu/live-server"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/src/extension.js",
+  "icon": "resources/logo.png",
+  "contributes": {
+    "commands": [
+      {
+        "command": "liveServerGuchho.startServer",
+        "title": "Live Server: Open with Live Server"
+      },
+      {
+        "command": "liveServerGuchho.stopServer",
+        "title": "Live Server: Stop Live Server"
+      },
+      {
+        "command": "liveServerGuchho.restartServer",
+        "title": "Live Server: Restart Live Server"
+      },
+      {
+        "command": "liveServerGuchho.openInBrowser",
+        "title": "Live Server: Open in Browser"
+      },
+      {
+        "command": "liveServerGuchho.toggleServer",
+        "title": "Live Server: Toggle Live Server"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "liveServerGuchho.startServer",
+          "when": "resourceExtname == .html || resourceExtname == .htm",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "liveServerGuchho.startServer",
+          "when": "editorLangId == html",
+          "group": "navigation"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "liveServerGuchho.startServer",
+          "when": "editorLangId == html",
+          "group": "navigation"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "key": "alt+l alt+o",
+        "mac": "cmd+l cmd+o",
+        "command": "liveServerGuchho.startServer",
+        "when": "editorTextFocus"
+      },
+      {
+        "key": "alt+l alt+c",
+        "mac": "cmd+l cmd+c",
+        "command": "liveServerGuchho.stopServer",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "Live Server (Guchho)",
+      "properties": {
+        "liveServerGuchho.host": {
+          "type": "string",
+          "default": "127.0.0.1",
+          "description": "Host to bind the server to"
+        },
+        "liveServerGuchho.port": {
+          "type": "number",
+          "default": 5500,
+          "description": "Port to bind the server to"
+        },
+        "liveServerGuchho.root": {
+          "type": "string",
+          "default": ".",
+          "description": "Root directory to serve"
+        },
+        "liveServerGuchho.openBrowser": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically open browser when server starts"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "build": "npm run package-platforms",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "guchho lint src",
+    "test": "node ./out/test/runTest.js",
+    "download-binaries": "ts-node scripts/download-binaries.ts",
+    "prepare-binaries": "ts-node scripts/prepare-binaries.ts",
+    "package-platforms": "ts-node scripts/package-platforms.ts",
+    "verify-package": "ts-node scripts/verify-package.ts"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^16.18.126",
+    "@types/vscode": "^1.75.0",
+    "@vscode/test-electron": "^2.3.0",
+    "@vscode/vsce": "^2.19.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "guchho": "^1.0.9"
+  }
+}
