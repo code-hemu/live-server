@@ -2,6 +2,8 @@
 
 Instant local server and live browser preview for VS Code, powered by [Guchho](https://guchho.js.org).
 
+![Live Server Demo VSCode](./resources/demo.gif)
+
 ## Features
 
 - Click **Go Live** in the status bar to start or stop the server
@@ -40,25 +42,6 @@ If no Guchho config (`guchho.config.js`, `guchho.config.json`, or `guchho.json`)
 
 Shortcuts can be changed in **Keyboard Shortcuts**.
 
-## Development
-
-### Setup
-```bash
-npm install
-npm run compile
-```
-
-### Packaging
-```bash
-npm run download-binaries
-npm run package-platforms
-```
-
-## Supported Platforms
-
-- win32-x64, win32-arm64
-- linux-x64, linux-arm64
-- darwin-x64, darwin-arm64
 
 ## License
 
