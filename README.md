@@ -1,8 +1,4 @@
 <p align="center">
-  <img src="resources/logo.png" alt="Live Server (Guchho)" width="200">
-</p>
-
-<p align="center">
   <strong>Instant local server and live browser preview for VS Code.</strong>
   <br>
   Powered by <a href="https://guchho.js.org">Guchho</a> — a fast, native web build system.
