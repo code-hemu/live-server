@@ -3,7 +3,7 @@
 </p>
 
 <p>
-  <a href="https://marketplace.visualstudio.com/">
+  <a href="https://marketplace.visualstudio.com/items?itemName=codehemu.live-server-guchho">
     <img src="https://img.shields.io/badge/VS%20Code-Extension-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="VS Code Extension">
   </a>
   <a href="https://github.com/guchho/guchho">
