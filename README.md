@@ -62,6 +62,4 @@ npm run package-platforms
 
 ## License
 
-MIT
-
 Live Server (Guchho) is licensed under **MIT**. Copyright © [CodeHemu](https://codehemu.in/).
