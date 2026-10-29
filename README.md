@@ -22,7 +22,7 @@
 <p align="center">Launch a local development server and preview your HTML pages directly from VS Code. Live Server (Guchho) uses Guchho's native development server for file watching, automatic rebuilds, and a smooth browser preview workflow.</p>
 
 <p align="center">
-  <img src="resources/demo.gif" alt="Live Server (Guchho) Demo" width="800">
+  <img src="https://raw.githubusercontent.com/code-hemu/live-server/main/resources/demo.gif" alt="Live Server (Guchho) Demo" width="800">
 </p>
 
 ## 🚀 Getting Started
