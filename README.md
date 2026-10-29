@@ -1,10 +1,8 @@
-<p align="center">
-  <strong>Instant local server and live browser preview for VS Code.</strong>
-  <br>
-  Powered by <a href="https://guchho.js.org">Guchho</a> — a fast, native web build system.
+<p>
+  <strong>Instant local server and live browser preview for VS Code.</strong> Powered by <a href="https://guchho.js.org">Guchho</a> — a fast, native web build system.
 </p>
 
-<p align="center">
+<p>
   <a href="https://marketplace.visualstudio.com/">
     <img src="https://img.shields.io/badge/VS%20Code-Extension-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="VS Code Extension">
   </a>
@@ -15,9 +13,9 @@
 </p>
 
 
-<p align="center">Launch a local development server and preview your HTML pages directly from VS Code. Live Server (Guchho) uses Guchho's native development server for file watching, automatic rebuilds, and a smooth browser preview workflow.</p>
+<p>Launch a local development server and preview your HTML pages directly from VS Code. Live Server (Guchho) uses Guchho's native development server for file watching, automatic rebuilds, and a smooth browser preview workflow.</p>
 
-<p align="center">
+<p>
   <img src="https://raw.githubusercontent.com/code-hemu/live-server/main/resources/demo.gif" alt="Live Server (Guchho) Demo" width="800">
 </p>
 
